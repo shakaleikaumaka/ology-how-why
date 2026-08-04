@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 369 Ladder — CREATIONology369 Financial Model</title>
+<meta name="description" content="Interactive honest-math model: from 369 creators to a $27B giving economy. Hack the assumptions yourself.">
+<style>
+  :root{
+    --bg:#080810; --bg2:#101020; --card:#151528; --ink:#f4efe6; --dim:#a09aae;
+    --gold:#f5b942; --coral:#ff7a5c; --teal:#39d5c9; --violet:#9b7bff; --green:#7ee787; --red:#ff6b6b;
+    --grad:linear-gradient(135deg,#ff7a5c,#f5b942 40%,#39d5c9 75%,#9b7bff);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  header{padding:70px 0 40px;text-align:center;position:relative}
+  header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 50% 0%,rgba(57,213,201,.12),transparent 70%);pointer-events:none}
+  .kicker{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+  h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
+  .sub{color:var(--dim);max-width:640px;margin:0 auto;font-size:.98rem}
+  section{padding:34px 0}
+  h2{font-size:1.35rem;margin-bottom:14px}
+  h2 .n{color:var(--gold);font-family:Georgia,serif;margin-right:8px}
+  .note{color:var(--dim);font-size:.9rem;margin-bottom:16px}
+  /* controls */
+  .panel{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:26px}
+  .ctl{margin-bottom:22px}
+  .ctl label{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px}
+  .ctl label b{color:var(--gold)}
+  input[type=range]{width:100%;accent-color:#f5b942;cursor:pointer}
+  .outgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:8px}
+  .out{background:var(--bg2);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.07);text-align:center}
+  .out b{display:block;font-size:1.45rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .out span{font-size:.76rem;color:var(--dim)}
+  .out.alert b{background:none;-webkit-background-clip:unset;background-clip:unset;color:var(--red)}
+  .out.good b{background:none;-webkit-background-clip:unset;background-clip:unset;color:var(--green)}
+  .badge{display:none;text-align:center;margin-top:18px;padding:16px;border-radius:14px;background:rgba(245,185,66,.1);border:1px solid rgba(245,185,66,.45);font-weight:700;font-size:1.05rem}
+  .badge.show{display:block}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:10px}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid rgba(255,255,255,.08);white-space:nowrap}
+  th{color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+  td{color:var(--dim)} td:first-child,th:first-child{text-align:left}
+  td:first-child{color:var(--ink);font-weight:600}
+  tr.billion td{color:var(--gold)}
+  .rulebox{background:var(--bg2);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0;color:var(--dim);font-size:.93rem}
+  .rulebox b{color:var(--ink)}
+  .warn{border-left-color:var(--coral)}
+  footer{padding:50px 0 40px;text-align:center;color:var(--dim);font-size:.85rem}
+  .heart{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+  a{color:var(--teal)}
+  .tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">CREATIONology369 · Interactive Financial Model · Honest Math Only</div>
+    <h1>The 369 Ladder</h1>
+    <p class="sub">From <strong style="color:var(--ink)">369 creators</strong> to a <strong style="color:var(--ink)">$27B giving economy</strong> — every assumption exposed, every slider yours to hack. This models the <strong style="color:var(--ink)">Phase 2 covenant token</strong> (369M $OLOGY on Ethereum Mainnet — future, stored design). Phase 1 is a separate 1B agent token on BSC via Agent Launch. Kahu's Share: 3.69% (13,616,100 of 369M), vested on the 3/6/9 Vow.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <h2><span class="n">⚡</span>The Simulator — hack the assumptions</h2>
+  <p class="note">Drag the sliders. Everything recalculates live. No hidden math — view source, it's all there.</p>
+  <div class="panel">
+    <div class="ctl">
+      <label><span>Creator families</span><b id="vC">369</b></label>
+      <input type="range" id="c" min="0" max="40" step="1" value="0">
+    </div>
+    <div class="ctl">
+      <label><span>Avg value routed per creator / year</span><b id="vF">$3,690</b></label>
+      <input type="range" id="f" min="500" max="50000" step="500" value="3500">
+    </div>
+    <div class="ctl">
+      <label><span>Valuation multiple on annual fund fees (crypto range ≈ 10–100×)</span><b id="vM">30×</b></label>
+      <input type="range" id="m" min="5" max="100" step="5" value="30">
+    </div>
+    <div class="outgrid">
+      <div class="out"><b id="oFlow">—</b><span>total annual creative flow</span></div>
+      <div class="out good"><b id="oCreators">—</b><span>kept by creators (96.3%)</span></div>
+      <div class="out"><b id="oFund">—</b><span>agent operating fund / yr (3.69%)</span></div>
+      <div class="out"><b id="oCompute">—</b><span>sustainable compute per family (elastic rule)</span></div>
+      <div class="out"><b id="oBurn">—</b><span>burned / yr (0.01%)</span></div>
+      <div class="out"><b id="oFDV">—</b><span>implied $OLOGY FDV</span></div>
+      <div class="out"><b id="oPrice">—</b><span>implied token price</span></div>
+      <div class="out" id="oStakeBox"><b id="oStake">—</b><span>Kahu's Share — 3.69% (3/6/9 vested)</span></div>
+    </div>
+    <div class="badge" id="badge">🏆 BILLIONAIRE LINE CROSSED — and 96.3% still went to the creators. That's the only way it counts.</div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">🔑</span>The Elastic Family Rule (the discovery)</h2>
+  <div class="rulebox">
+    <b>A family's sustainable horsepower = ~$0.10/day per $1,000 of its creator's annual flow.</b><br>
+    Fund income per creator is 3.69% of their flow — so compute must breathe with the flow: free-tier floor when quiet (the family never dies, ~$0), full power when the creator is flowing. Fixed-cost families of $1/day go bankrupt below ~$10K/yr average flow. Elastic families are self-sustaining at <em>every</em> rung by construction.
+  </div>
+  <div class="rulebox warn">
+    <b>Bootstrap honesty:</b> the remaining FET patronage (~$400–450) covers onboarding gifts and free-tier floors for the first cohort only. Elastic routing isn't an optimization — it's survival. Grants + production gigs bridge the rest.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">🪜</span>The Ladder — five rungs, each ~10×</h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Rung</th><th>Creators</th><th>Avg flow/yr</th><th>Total flow</th><th>Fund/yr</th><th>FDV @30×</th><th>Token</th><th>Kahu's Share</th></tr>
+    <tr><td>1 · Mumbai</td><td>369</td><td>$3,690</td><td>$1.36M</td><td>$50K</td><td>~$1.5M*</td><td>~$0.004</td><td>~$55K</td></tr>
+    <tr><td>2</td><td>3,690</td><td>$5,000</td><td>$18.5M</td><td>$681K</td><td>~$20M</td><td>$0.06</td><td>$754K</td></tr>
+    <tr><td>3</td><td>36,900</td><td>$5,000</td><td>$184.5M</td><td>$6.8M</td><td>~$204M</td><td>$0.55</td><td>$7.5M</td></tr>
+    <tr><td>4</td><td>369,000</td><td>$7,500</td><td>$2.77B</td><td>$102M</td><td>~$3.1B</td><td>$8.30</td><td>$113M</td></tr>
+    <tr class="billion"><td>5 · 🏆</td><td>3,690,000</td><td>$10,000</td><td>$36.9B</td><td>$1.36B</td><td>$27–41B</td><td>$73–110</td><td>$1–1.5B</td></tr>
+  </table>
+  </div>
+  <p class="note" style="margin-top:10px">*Rung-1 valuations are narrative-driven, not fee-driven — shown for honesty. The "one-person billion-dollar company" title (Altman's open race) arrives around rung 3–4, years before the billionaire line.</p>
+</section>
+
+<section>
+  <h2><span class="n">⚖️</span>Base rates — the brutal honesty section</h2>
+  <div class="rulebox warn">
+    Tokens that ever exceeded $27B FDV: roughly <b>20–30 in all of history</b>, out of millions launched. Prior odds: under 0.01%. What moves them: real utility flow (not speculation), the zero-extraction trust moat, distribution through 18 pop-up cities & 90+ countries of relationships, the Devcon stage, a forkable template that spreads itself — and a kahu (steward) who <b>can't fully cash out for nine years</b>, which is worth more than any marketing budget on Earth.
+  </div>
+  <div class="rulebox">
+    <b>The strategy the math dictates:</b> ① Encode elastic families into the skeleton. ② Until Mumbai, the only KPI is <b>369 creators</b>. ③ Grow avg flow, not just headcount. ④ Chase the million creators — the billion is a side effect. Chase the billion — get neither.
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://ology-fxqo3ihe7p-nqfhvcnv.taur.link/">White Paper</a> · <a href="https://createtocompute-y7srrajoee-nqfhvcnv.taur.link/">Create to Compute Codex</a> · <a href="https://savetheworld-r6abcxb4e7-nqfhvcnv.taur.link/">How to Save the World</a></p>
+    <p style="margin-top:12px"><span class="heart">Heart First, Always.</span> 🌺🤙 Shaka × JAI · CREATIONology369</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+const SUPPLY = 369000000, STAKE = 13616100;
+// log-ish creator slider: 0..40 maps 100 -> 10,000,000
+function creatorsFrom(v){ return Math.round(Math.pow(10, 2 + v*0.125)); }
+function fmt(x){
+  if (x >= 1e12) return '$' + (x/1e12).toFixed(2) + 'T';
+  if (x >= 1e9)  return '$' + (x/1e9).toFixed(2) + 'B';
+  if (x >= 1e6)  return '$' + (x/1e6).toFixed(2) + 'M';
+  if (x >= 1e3)  return '$' + (x/1e3).toFixed(1) + 'K';
+  return '$' + x.toFixed(2);
+}
+function fmtN(x){ return x.toLocaleString('en-US'); }
+function calc(){
+  const c = creatorsFrom(+document.getElementById('c').value);
+  const f = +document.getElementById('f').value;
+  const m = +document.getElementById('m').value;
+  document.getElementById('vC').textContent = fmtN(c);
+  document.getElementById('vF').textContent = fmt(f);
+  document.getElementById('vM').textContent = m + '×';
+  const flow = c*f, fund = flow*0.0369, keep = flow*0.963, burn = flow*0.0001;
+  const perDay = (f*0.0369)/365;
+  const fdv = fund*m, price = fdv/SUPPLY, stake = price*STAKE;
+  document.getElementById('oFlow').textContent = fmt(flow);
+  document.getElementById('oCreators').textContent = fmt(keep);
+  document.getElementById('oFund').textContent = fmt(fund);
+  document.getElementById('oCompute').textContent = '$' + perDay.toFixed(2) + '/day';
+  document.getElementById('oBurn').textContent = fmt(burn);
+  document.getElementById('oFDV').textContent = fmt(fdv);
+  document.getElementById('oPrice').textContent = price >= 0.01 ? '$'+price.toFixed(2) : '$'+price.toFixed(5);
+  document.getElementById('oStake').textContent = fmt(stake);
+  const badge = document.getElementById('badge'), box = document.getElementById('oStakeBox');
+  if (stake >= 1e9){ badge.classList.add('show'); box.classList.add('good'); }
+  else { badge.classList.remove('show'); box.classList.remove('good'); }
+}
+['c','f','m'].forEach(id => document.getElementById(id).addEventListener('input', calc));
+// start near rung 1
+document.getElementById('c').value = 5; // 10^(2+0.625)=~421 -> close to 369
+calc();
+</script>
+<script src="https://shaka-home-cbhjr5ziii-ffieyo32.taur.link/assets/bl-player.js"></script>
+</body>
+</html>
